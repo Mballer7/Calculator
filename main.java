@@ -67,5 +67,99 @@ public class calculatorProject {
             }
         }
         
+        if ( selection == 6){
+            Scanner DUI = new Scanner(System.in);
+            System.out.println("1. Metric System 2. Imperial System ");
+            System.out.print("Select your measurement system:");
+            int SUI = DUI.nextInt();
+
+            if(SUI == 1){
+                System.out.println("1. MM -> CM 2. MM -> M 3. MM -> KM 4. CM -> MM 5. CM -> M 6. CM -> KM");
+                System.out.println("7. M -> MM 8. M -> CM 9. M -> KM 10. KM -> M 11. KM -> CM 12. KM -> MM");
+                System.out.print("Enter the conversion you would like to use:");
+                int MUI = DUI.nextInt();
+
+                if(MUI == 1){
+                    ConvertDistance(false,10,"MM","CM");
+                }
+                if(MUI == 2){
+                    ConvertDistance(false,1000,"MM","Meters");
+                }
+                if(MUI == 3){
+                    ConvertDistance(false,1e+6,"MM","KM");
+                }
+                if(MUI == 4){
+                    ConvertDistance(true,10,"CM","MM");
+                }
+                if(MUI == 5){
+                    ConvertDistance(false,100,"CM","Meters");
+                }
+                if(MUI == 6){
+                    ConvertDistance(false,100000,"CM","KM");
+                }
+                if(MUI == 7){
+                    ConvertDistance(true,1000,"Meters","MM");
+                }
+                if(MUI == 8){
+                    ConvertDistance(true,100,"Meters","CM");
+                }
+                if(MUI == 9){
+                    ConvertDistance(false,1000,"Meters","KM");
+                }
+                if(MUI == 10){
+                    ConvertDistance(true,1000,"KM","Meters");
+                }
+                if(MUI == 11){
+                    ConvertDistance(true,100000,"KM","CM");
+                }
+                if(MUI == 12){
+                    ConvertDistance(true,1e+6,"KM","MM");
+                }
+            }
+
+            if(SUI == 2){
+                System.out.println("1. I -> F 2. I -> Y 3. I -> M 4. F -> I 5. F -> Y 6. F -> M");
+                System.out.println("7. Y -> I 8. Y -> F  9. Y -> M 10. M -> I 11. M -> F 12. M -> Y");
+                System.out.print("Enter the conversion you would like to use: ");
+                int IUI = DUI.nextInt();
+
+                if(IUI == 1){
+                    ConvertDistance(false,12,"Inches","Foot");
+                }
+                if(IUI == 2){
+                    ConvertDistance(false,36,"Inches","Yards");
+                }
+                if(IUI == 3){
+                    ConvertDistance(false,63360,"Inches","Miles");
+                }
+                if(IUI == 4){
+                    ConvertDistance(true,12,"Foot","Inches");
+                }
+                if(IUI == 5){
+                    ConvertDistance(false,3,"Foot","Yards");
+                }
+                if(IUI == 6){
+                    ConvertDistance(false,5280,"Foot","Miles");
+                }
+                if(IUI == 7){
+                    ConvertDistance(true,36,"Yards","Inches");
+                }
+                if(IUI == 8){
+                    ConvertDistance(true,3,"Yards","Foot");
+                }
+                if(IUI == 9){
+                    ConvertDistance(false,1760,"Yards","Miles");
+                }
+                if(IUI == 10){
+                    ConvertDistance(true,63360,"Miles","Inches");
+                }
+                if(IUI == 11){
+                    ConvertDistance(true,5280,"Miles","Foot");
+                }
+                if(IUI == 12){
+                    ConvertDistance(true,1760,"Miles","Yards");
+                }
+            }
+        }
     }
 }
