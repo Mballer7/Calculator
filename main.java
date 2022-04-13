@@ -162,4 +162,20 @@ public class calculatorProject {
             }
         }
     }
+    
+     private static void ConvertDistance(boolean shouldmultiply, double convertamount, String convertfrom, String converto){
+            Scanner DUI = new Scanner(System.in);
+            System.out.println("Enter the amount of " + convertfrom + "you want to convert:");
+            double D = DUI.nextDouble();
+            double x;
+
+            if (shouldmultiply = true){
+                x = D*convertamount;
+            }
+            else{
+                x = D/convertamount;
+            }
+
+            System.out.println(D + " " + convertfrom + " is " + x + " " + converto);
+    }
 }
