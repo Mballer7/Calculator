@@ -3,13 +3,15 @@ import java.util.*;
 public class calculatorProject {
     public static void main(String[] args) {
         Scanner userInput1 = new Scanner(System.in);
-        System.out.println("______CALCULATOR MENU______");
+        System.out.println("___________________________");
+        System.out.println("|     CALCULATOR MENU     |");
+        System.out.println("|-------------------------|");
         System.out.println("| 1) Pythagorean Theorem  |");
         System.out.println("| 2) Discounting          |");
-        System.out.println("| 3) Price Conversion     |");
-        System.out.println("|                         |");
-        System.out.println("|                         |");
-        System.out.println("|                         |");
+        System.out.println("| 3) Tipping              |");
+        System.out.println("| 4) Price Conversion     |");
+        System.out.println("| 5) Weight Conversion    |");
+        System.out.println("| 6) Distance Conversion  |");
         System.out.println("|_________________________|");
         System.out.print("Select what you would like to calculate: ");
         int selection = userInput1.nextInt();
@@ -35,21 +37,33 @@ public class calculatorProject {
             s = 100-discountPercentage;
             endPrice = (s*total)/100;
             System.out.print("Total after discount: "+ endPrice);
-
         }
-        
-        if ( selection == 3){
+
+        if (selection == 3) {
+            double total,tipPercentage,tipRatio,finalTotal;
+            Scanner tips = new Scanner (System.in);
+            System.out.print("Enter the total for your meal: ");
+            total = tips.nextDouble();
+            System.out.print("Enter tip percentage: ");
+            tipPercentage = tips.nextDouble();
+            tipRatio = tipPercentage/100;
+            finalTotal = total + (total * tipRatio);
+            System.out.print("Your final total is: " + finalTotal);
+        }
+
+        if ( selection == 4){
             double u = 0.79;
             double e = 0.73;
             double p = 0.61;
             double a = 1.07;
             double b = 3.73;
             Scanner UI = new Scanner(System.in);
-            System.out.println("1.USD 2.EUROS 3.Pounds 4.Australian 5.Brazilian Real");
-            System.out.println("What do you want to convert from CAD?");
+            System.out.println("1. USD 2. EUROS 3. Pounds 4. Australian 5. Brazilian Real");
+            System.out.print("Select your conversion currency: ");
             int conv = UI.nextInt();
-            System.out.println("How much CAD do you want to convert?");
+            System.out.print("Enter the amount of CAD you would like to convert:");
             double amount = UI.nextInt();
+
             if (conv == 1){
                 System.out.println(amount + " CAD is " +  amount*u + " USD");
             }
@@ -66,7 +80,27 @@ public class calculatorProject {
                 System.out.println(amount + " CAD is " +  amount*b + " Reals");
             }
         }
-        
+
+        if (selection == 5) {
+            int conversionChoice;
+            double userWeight,userWeight2;
+            Scanner weight = new Scanner (System.in);
+            Scanner selection2 = new Scanner (System.in);
+            System.out.print("Enter 1 to convert to Kilograms, Enter 2 to convert to Pounds: ");
+            conversionChoice = selection2.nextInt();
+
+            if (conversionChoice == 1) {
+                System.out.print("Enter your weight in Pounds: ");
+                userWeight = weight.nextDouble();
+                System.out.print("Your weight in Kilograms is " + userWeight/2.2);
+            }
+            if (conversionChoice == 2) {
+                System.out.print("Enter your weight in Kilograms: ");
+                userWeight2 = weight.nextDouble();
+                System.out.print("Your weight in Pounds is " + userWeight2*2.2);
+            }
+        }
+
         if ( selection == 6){
             Scanner DUI = new Scanner(System.in);
             System.out.println("1. Metric System 2. Imperial System ");
@@ -162,20 +196,20 @@ public class calculatorProject {
             }
         }
     }
-    
-     private static void ConvertDistance(boolean shouldmultiply, double convertamount, String convertfrom, String converto){
-            Scanner DUI = new Scanner(System.in);
-            System.out.println("Enter the amount of " + convertfrom + "you want to convert:");
-            double D = DUI.nextDouble();
-            double x;
 
-            if (shouldmultiply = true){
-                x = D*convertamount;
-            }
-            else{
-                x = D/convertamount;
-            }
+    private static void ConvertDistance(boolean shouldmultiply, double convertamount, String convertfrom, String converto){
+        Scanner DUI = new Scanner(System.in);
+        System.out.println("Enter the amount of " + convertfrom + "you want to convert:");
+        double D = DUI.nextDouble();
+        double x;
 
-            System.out.println(D + " " + convertfrom + " is " + x + " " + converto);
+        if (shouldmultiply = true){
+            x = D*convertamount;
+        }
+        else{
+            x = D/convertamount;
+        }
+
+        System.out.println(D + " " + convertfrom + " is " + x + " " + converto);
     }
 }
